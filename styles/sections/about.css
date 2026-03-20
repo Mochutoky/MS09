@@ -1,0 +1,138 @@
+/* ================= ABOUT SECTION ================= */
+/* File: styles/sections/about.css */
+
+.about {
+  background-color: var(--bgColor);
+}
+
+/* Layout container */
+.about__container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 80px; /* Creates premium breathing space */
+}
+
+/* LEFT CONTENT */
+.about__content {
+  max-width: 520px;
+}
+
+/* Intro text — acts like a soft headline */
+.about__intro {
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--textColor);
+  margin-bottom: 48px;
+}
+
+/* VALUES */
+.about__values {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-bottom: 56px;
+}
+
+/* Individual value */
+.about__value-title {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--textColor);
+  margin-bottom: 6px;
+}
+
+.about__value-text {
+  font-size: 15px;
+  color: var(--mutedTextColor);
+  line-height: 1.6;
+}
+
+/* FACTS */
+.about__facts {
+  display: flex;
+  gap: 40px;
+}
+
+/* Fact item */
+.about__fact {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Big number / highlight */
+.about__fact-number {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--textColor);
+}
+
+/* Supporting label */
+.about__fact-label {
+  font-size: 14px;
+  color: var(--mutedTextColor);
+}
+
+
+/* RIGHT MEDIA */
+.about__media {
+  width: 420px;
+}
+
+/* Image container */
+.about__image {
+  width: 100%;
+  height: 520px;
+  overflow: hidden;
+  border-radius: var(--radiusLarge);
+}
+
+/* Image behavior */
+.about__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Critical for premium look */
+}
+
+
+/* ================= ANIMATION ================= */
+/* Simple fade-in (can be reused globally) */
+.about {
+  opacity: 1;
+  transform: none;
+}
+
+/* только для анимации 
+.about {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.about.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+*/
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+
+  .about__container {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .about__media {
+    width: 100%;
+  }
+
+  .about__image {
+    height: 360px;
+  }
+
+  .about__facts {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+}

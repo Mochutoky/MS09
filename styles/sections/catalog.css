@@ -1,0 +1,134 @@
+/* ================= COLLECTIONS SECTION ================= */
+/* File: styles/sections/catalog.css */
+
+.catalog {
+  background-color: var(--bgColor);
+}
+
+/* ================= HEADER ================= */
+
+.catalog__header {
+  max-width: 520px;
+  margin-bottom: 60px;
+}
+
+.catalog__title {
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--textColor);
+  margin-bottom: 12px;
+}
+
+.catalog__subtitle {
+  font-size: 16px;
+  color: var(--mutedTextColor);
+  line-height: 1.6;
+}
+
+
+/* ================= GRID ================= */
+
+/* Editorial grid system */
+.catalog__grid {
+  display: grid;
+
+  /* Balanced layout: slightly larger cards than brands */
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+  gap: 40px;
+}
+
+
+/* ================= CARD ================= */
+
+.collection-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+
+/* IMAGE BLOCK */
+.collection-card__image {
+  width: 100%;
+
+  /* Fixed aspect ratio (important for consistency) */
+  aspect-ratio: 4 / 5;
+
+  overflow: hidden;
+  border-radius: var(--radiusLarge);
+}
+
+/* Image behavior */
+.collection-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  transition: var(--transitionSlow);
+}
+
+/* Subtle zoom on hover */
+.collection-card:hover .collection-card__image img {
+  transform: scale(1.04);
+}
+
+
+/* CONTENT */
+.collection-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+
+/* TITLE */
+.collection-card__title {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--textColor);
+}
+
+
+/* DESCRIPTION */
+.collection-card__description {
+  font-size: 14px;
+  color: var(--mutedTextColor);
+  line-height: 1.6;
+}
+
+
+/* ================= ANIMATION ================= */
+.catalog {
+  opacity: 1;
+  transform: none;
+}
+/* .catalog {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: var(--transitionSlow);
+}
+
+.catalog.visible {
+  opacity: 1;
+  transform: translateY(0);
+} */
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+
+  .catalog__header {
+    margin-bottom: 40px;
+  }
+
+  .catalog__title {
+    font-size: 26px;
+  }
+
+  .catalog__grid {
+    gap: 24px;
+  }
+
+}

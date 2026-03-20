@@ -1,0 +1,122 @@
+/* ================= WHOLESALE SECTION ================= */
+/* File: styles/sections/wholesale.css */
+
+.wholesale {
+  background-color: var(--surfaceColor); /* Slight contrast from other sections */
+}
+
+/* ================= HEADER ================= */
+
+.wholesale__header {
+  max-width: 520px;
+  margin-bottom: 60px;
+}
+
+.wholesale__title {
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--textColor);
+  margin-bottom: 12px;
+}
+
+.wholesale__subtitle {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--mutedTextColor);
+}
+
+
+/* ================= GRID ================= */
+
+.wholesale__grid {
+  display: grid;
+
+  /* Flexible layout: adapts from 3 → 2 → 1 columns */
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+
+  gap: 32px; /* Slightly tighter than brands for density */
+  margin-bottom: 60px;
+}
+
+
+/* ================= CARD ================= */
+
+.wholesale__card {
+  padding: 28px;
+  background-color: var(--bgColor);
+  border-radius: var(--radiusMedium);
+  border: 1px solid var(--borderColor);
+
+  transition: var(--transitionMedium);
+}
+
+/* Subtle hover (very restrained for business tone) */
+.wholesale__card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadowSoft);
+}
+
+
+/* Title */
+.wholesale__card-title {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--textColor);
+  margin-bottom: 8px;
+}
+
+/* Description */
+.wholesale__card-text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--mutedTextColor);
+}
+
+
+/* ================= CTA ================= */
+
+.wholesale__cta {
+  display: flex;
+  justify-content: flex-start;
+}
+
+
+/* ================= ANIMATION ================= */
+/* Gentle reveal */
+.wholesale {
+  opacity: 1;
+  transform: none;
+}
+/* .wholesale {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: var(--transitionSlow);
+}
+
+.wholesale.visible {
+  opacity: 1;
+  transform: translateY(0);
+} */
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+
+  .wholesale__header {
+    margin-bottom: 40px;
+  }
+
+  .wholesale__title {
+    font-size: 26px;
+  }
+
+  .wholesale__grid {
+    gap: 20px;
+  }
+
+  .wholesale__cta {
+    justify-content: center; /* Center CTA on mobile */
+  }
+
+}

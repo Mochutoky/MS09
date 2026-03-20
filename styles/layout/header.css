@@ -1,0 +1,94 @@
+/* ================= HEADER ================= */
+/* File: styles/layout/header.css */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  z-index: 1000;
+
+  /* Initial transparent state */
+  background-color: transparent;
+
+  transition: var(--transitionMedium);
+}
+
+/* Container */
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 80px;
+}
+
+/* Logo */
+.header__logo {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--textColor);
+}
+
+/* Menu */
+.header__menu {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+/* Links */
+.header__link {
+  font-size: 14px;
+  color: var(--textColor);
+  text-decoration: none;
+  position: relative;
+
+  transition: var(--transitionMedium);
+}
+
+/* Hover (very subtle) */
+.header__link:hover {
+  opacity: 0.6;
+}
+
+/* Active link underline */
+.header__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 1px;
+  background-color: var(--textColor);
+  transition: var(--transitionMedium);
+}
+
+.header__link.active::after {
+  width: 100%;
+}
+
+/* ================= SCROLLED STATE ================= */
+/* Header becomes solid */
+
+.header.scrolled {
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+
+  border-bottom: 1px solid var(--borderColor);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+
+  .header__menu {
+    gap: 16px;
+  }
+
+  .header__container {
+    height: 70px;
+  }
+
+}

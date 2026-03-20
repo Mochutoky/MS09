@@ -1,0 +1,150 @@
+/* ================= BRANDS SECTION ================= */
+/* File: styles/sections/brands.css */
+
+.brands {
+  background-color: var(--bgColor);
+}
+
+/* Section header */
+.brands__header {
+  max-width: 520px;
+  margin-bottom: 60px;
+}
+
+.brands__title {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--textColor);
+}
+
+.brands__subtitle {
+  font-size: 16px;
+  color: var(--mutedTextColor);
+  line-height: 1.6;
+}
+
+
+/* ================= GRID ================= */
+/* Core layout system */
+
+.brands__grid {
+  display: grid;
+
+  /* Responsive grid:
+     - auto-fit ensures flexibility
+     - minmax prevents cards from becoming too small */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+  gap: 40px; /* Spacious, premium spacing */
+}
+
+
+/* ================= CARD ================= */
+
+.brand-card {
+  background-color: var(--surfaceColor);
+  border-radius: var(--radiusLarge);
+  overflow: hidden;
+  transition: var(--transitionMedium);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Hover effect — subtle lift */
+.brand-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadowSoft);
+}
+
+
+/* IMAGE */
+.brand-card__image {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+
+.brand-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  /* Subtle zoom effect */
+  transition: var(--transitionSlow);
+}
+
+.brand-card:hover .brand-card__image img {
+  transform: scale(1.03);
+}
+
+
+/* CONTENT */
+.brand-card__content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+
+/* LOGO */
+.brand-card__logo img {
+  height: 28px;
+  width: auto;
+  object-fit: contain;
+}
+
+
+/* TITLE */
+.brand-card__title {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--textColor);
+}
+
+
+/* DESCRIPTION */
+.brand-card__description {
+  font-size: 14px;
+  color: var(--mutedTextColor);
+  line-height: 1.6;
+}
+
+
+/* ================= ANIMATION ================= */
+/* Fade-in on scroll */
+.brands {
+  opacity: 1;
+  transform: none;
+}
+
+/* .brands {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: var(--transitionSlow);
+}
+
+.brands.visible {
+  opacity: 1;
+  transform: translateY(0);
+} */
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+
+  .brands__header {
+    margin-bottom: 40px;
+  }
+
+  .brands__title {
+    font-size: 26px;
+  }
+
+  .brand-card__image {
+    height: 180px;
+  }
+
+}

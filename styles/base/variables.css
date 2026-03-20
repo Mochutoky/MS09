@@ -1,0 +1,17 @@
+:root {
+  --bgColor: #f8f7f5;
+  --textColor: #1a1a1a;
+  --mutedTextColor: #777;
+  --borderColor: #e5e5e5;
+
+  --radiusLarge: 16px;
+  --radiusMedium: 10px;
+
+  --transitionFast: 0.2s ease;
+  --transitionMedium: 0.4s ease;
+  --transitionSlow: 0.8s ease;
+
+  --maxWidth: 1200px;
+  --sectionSpacing: 120px;
+  --containerPadding: 20px;
+}

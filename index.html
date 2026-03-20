@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>MS</title>
+
+  <!-- ================= FONTS ================= -->
+  <!-- Подключи Inter или другой clean sans-serif -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- ================= STYLES ================= -->
+  <!-- ВАЖНО: подключаем ТОЛЬКО main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+
+  <!-- ================= JS ================= -->
+  <script type="module" src="js/main.js"></script>  
+
+</head>
+<body>
+    <!-- ================= HEADER ================= -->
+    <!-- Fixed minimal header with navigation -->
+    <header class="header" id="header">
+    
+      <div class="container header__container">
+    
+        <!-- Logo / Brand -->
+        <div class="header__logo">
+          MS09
+        </div>
+    
+        <!-- Navigation -->
+        <nav class="header__nav">
+          <ul class="header__menu">
+        
+            <!-- Replace navLinks with real anchors -->
+            <li><a href="#hero" class="header__link active">Главная</a></li>
+            <li><a href="#about" class="header__link">О компании</a></li>
+            <li><a href="#brands" class="header__link">Бренды</a></li>
+            <li><a href="#wholesale" class="header__link">Оптовым покупателям</a></li>
+            <li><a href="#catalog" class="header__link">Каталог</a></li>
+            <li><a href="#contacts" class="header__link">Контакты</a></li>
+        
+          </ul>
+        </nav>
+    
+      </div>
+  
+    </header>
+    
+    <!-- ================= MAIN ================= -->
+    <main>
+
+        <!-- HERO -->
+        <!-- Вставляешь hero section -->
+        <section id="hero" class="hero">
+            <div class="container hero__container">
+            
+                <!-- LEFT: TEXT CONTENT -->
+                <div class="hero__content">
+                
+                    <!-- Main headline -->
+                    <h1 class="hero__title">
+                        Кульмагамбетов Мурат Сатылганович
+                    </h1>
+            
+                    <!-- Subheadline -->
+                    <p class="hero__subtitle">
+                        Глава всех мопсов
+                    </p>
+            
+                    <!-- CTA buttons -->
+                    <div class="hero__actions">
+                    <a href="#contacts" class="btn btn--primary">
+                        Сотрудничество
+                    </a>
+                    <a href="#about" class="btn btn--secondary">
+                        Узнать больше
+                    </a>
+                    </div>
+            
+                 </div>
+          
+              <!-- RIGHT: IMAGE COMPOSITION -->
+              <div class="hero__media">
+                
+                <!-- Main dominant image -->
+                <div class="hero__image hero__image--main">
+                  <!-- Replace src with mainPhoto -->
+                  <img src="assets/images/hero/main.jpeg" alt="(mainPhoto)">
+                </div>
+            
+                <!-- Secondary image (optional, decorative layering) -->
+                <div class="hero__image hero__image--secondary">
+                  <!-- Replace src with secondaryPhotos -->
+                  <img src="assets/images/hero/secondary.jpg" alt="(secondaryPhotos)">
+                </div>
+            
+              </div>
+          
+            </div>
+            
+        </section>
+
+        <!-- ABOUT -->
+        <section id="about" class="about">
+        
+            <div class="container about__container">
+            
+              <!-- LEFT: TEXT CONTENT -->
+                <div class="about__content">
+
+                    <!-- Intro -->
+                    <p class="about__intro">
+                        (companyIntro)
+                    </p>
+                
+                    <!-- Values block -->
+                    <div class="about__values">
+
+                        <!-- Repeat for each value -->
+                        <div class="about__value">
+                          <h3 class="about__value-title">(Ценность / Принцип)</h3>
+                          <p class="about__value-text">(Краткое описание ценности)</p>
+                        </div>
+                      
+                        <div class="about__value">
+                          <h3 class="about__value-title">(Ценность / Принцип)</h3>
+                          <p class="about__value-text">(Краткое описание ценности)</p>
+                        </div>
+                      
+                    </div>
+                
+                    <!-- Facts block -->
+                    <div class="about__facts">
+                      
+                        <div class="about__fact">
+                            <span class="about__fact-number">(Факт / Число)</span>
+                            <span class="about__fact-label">(Описание факта)</span>
+                        </div>
+                    
+                        <div class="about__fact">
+                            <span class="about__fact-number">(Факт / Число)</span>
+                            <span class="about__fact-label">(Описание факта)</span>
+                        </div>
+                    
+                    </div>
+                
+                </div>
+            
+            
+              <!-- RIGHT: IMAGE -->
+                <div class="about__media">
+
+                  <!-- Main editorial image -->
+                  <div class="about__image">
+                        <!-- Replace with secondaryPhotos -->
+                        <img src="assets/images/about/about-main.jpg" alt="(secondaryPhotos)">
+                  </div>
+                
+                </div>
+            
+            </div>
+      
+        </section>        
+
+        <!-- BRANDS -->
+        <section id="brands" class="brands">
+        
+          <div class="container brands__container">
+        
+            <!-- Section header (minimal, optional) -->
+            <div class="brands__header">
+              <h2 class="brands__title">(Раздел / Бренды)</h2>
+              <p class="brands__subtitle">(Краткое описание брендов / позиционирование)</p>
+            </div>
+        
+            <!-- Brands grid -->
+            <div class="brands__grid">
+            
+              <!-- ===== BRAND CARD ===== -->
+              <!-- Repeat this block for each brand in brandList -->
+              <div class="brand-card">
+            
+                <!-- Optional image (can be removed if only logo needed) -->
+                <div class="brand-card__image">
+                  <img src="assets/images/brands/brand-1.jpg" alt="(secondaryPhotos)">
+                </div>
+            
+                <!-- Content -->
+                <div class="brand-card__content">
+                
+                  <!-- Logo -->
+                  <div class="brand-card__logo">
+                    <img src="assets/images/brands/logo-1.svg" alt="(brandLogos)">
+                  </div>
+              
+                  <!-- Title -->
+                  <h3 class="brand-card__title">
+                    (Название бренда)
+                  </h3>
+              
+                  <!-- Description -->
+                  <p class="brand-card__description">
+                    (Краткое описание бренда)
+                  </p>
+              
+                </div>
+            
+              </div>
+          
+          
+              <!-- ===== BRAND CARD (duplicate example) ===== -->
+              <div class="brand-card">
+            
+                <div class="brand-card__image">
+                  <img src="assets/images/brands/brand-2.jpg" alt="(secondaryPhotos)">
+                </div>
+            
+                <div class="brand-card__content">
+                  <div class="brand-card__logo">
+                    <img src="assets/images/brands/logo-2.svg" alt="(brandLogos)">
+                  </div>
+              
+                  <h3 class="brand-card__title">
+                    (Название бренда)
+                  </h3>
+              
+                  <p class="brand-card__description">
+                    (Краткое описание бренда)
+                  </p>
+                </div>
+            
+              </div>
+          
+            </div>
+        
+          </div>
+      
+        </section>
+
+        <!-- WHOLESALE -->
+        <section id="wholesale" class="wholesale">
+        
+          <div class="container wholesale__container">
+        
+            <!-- Header -->
+            <div class="wholesale__header">
+              <h2 class="wholesale__title">(Раздел / Для оптовых клиентов)</h2>
+              <p class="wholesale__subtitle">
+                (Краткое описание предложения для партнёров / оптовых клиентов)
+              </p>
+            </div>
+        
+            <!-- Benefits -->
+            <div class="wholesale__grid">
+            
+              <!-- ===== BENEFIT ITEM ===== -->
+              <!-- Repeat for each item in wholesaleBenefits -->
+              <div class="wholesale__card">
+            
+                <h3 class="wholesale__card-title">
+                  (Преимущество / УТП)
+                </h3>
+            
+                <p class="wholesale__card-text">
+                  (Краткое описание преимущества)
+                </p>
+            
+              </div>
+          
+              <!-- Duplicate example -->
+              <div class="wholesale__card">
+                <h3 class="wholesale__card-title">(Преимущество / УТП)</h3>
+                <p class="wholesale__card-text">(Краткое описание преимущества)</p>
+              </div>
+          
+              <div class="wholesale__card">
+                <h3 class="wholesale__card-title">(Преимущество / УТП)</h3>
+                <p class="wholesale__card-text">(Краткое описание преимущества)</p>
+              </div>
+          
+            </div>
+        
+            <!-- CTA -->
+            <div class="wholesale__cta">
+              <a href="#contacts" class="btn btn--primary">
+                (Связаться / Оставить заявку)
+              </a>
+            </div>
+        
+          </div>
+      
+        </section>
+
+        <!-- CATALOG -->
+        <section id="catalog" class="catalog">
+        
+          <div class="container catalog__container">
+        
+            <!-- Header -->
+            <div class="catalog__header">
+              <h2 class="catalog__title">(Коллекции / Подборки)</h2>
+              <p class="catalog__subtitle">
+                (Краткое описание коллекций / стилистики)
+              </p>
+            </div>
+        
+            <!-- Grid -->
+            <div class="catalog__grid">
+            
+              <!-- ===== COLLECTION CARD ===== -->
+              <!-- Repeat for each item in collectionList -->
+              <div class="collection-card">
+            
+                <!-- Image -->
+                <div class="collection-card__image">
+                  <img src="assets/images/catalog/collection-1.jpg" alt="(collection image)">
+                </div>
+            
+                <!-- Content -->
+                <div class="collection-card__content">
+                  <h3 class="collection-card__title">
+                    (Название коллекции)
+                  </h3>
+                  <p class="collection-card__description">
+                    (Краткое описание коллекции)
+                  </p>
+                </div>
+            
+              </div>
+          
+          
+              <!-- Duplicate example -->
+              <div class="collection-card">
+                <div class="collection-card__image">
+                  <img src="assets/images/catalog/collection-2.jpg" alt="(collection image)">
+                </div>
+            
+                <div class="collection-card__content">
+                  <h3 class="collection-card__title">(Название коллекции)</h3>
+                  <p class="collection-card__description">(Краткое описание коллекции)</p>
+                </div>
+              </div>
+          
+            </div>
+        
+          </div>
+      
+        </section>
+
+        <!-- CONTACTS -->
+        <section id="contacts" class="contacts">
+        
+          <div class="container contacts__container">
+        
+            <!-- LEFT: CONTACT INFO -->
+            <div class="contacts__info">
+            
+              <h2 class="contacts__title">
+                (Связаться / Контакты)
+              </h2>
+          
+              <p class="contacts__subtitle">
+                (Краткий текст — как связаться / приглашение к сотрудничеству)
+              </p>
+          
+              <!-- Contact details -->
+              <div class="contacts__details">
+            
+                <div class="contacts__item">
+                  <span class="contacts__label">Email</span>
+                  <a href="mailto:(contactEmail)" class="contacts__value">
+                    (contactEmail)
+                  </a>
+                </div>
+            
+                <div class="contacts__item">
+                  <span class="contacts__label">Телефон</span>
+                  <a href="tel:(contactPhone)" class="contacts__value">
+                    (contactPhone)
+                  </a>
+                </div>
+            
+                <div class="contacts__item">
+                  <span class="contacts__label">Адрес</span>
+                  <span class="contacts__value">
+                    (contactAddress)
+                  </span>
+                </div>
+            
+              </div>
+          
+              <!-- Social links -->
+              <div class="contacts__socials">
+                <!-- Replace with socialLinks -->
+                <a href="#" class="contacts__social">(Соц сеть)</a>
+                <a href="#" class="contacts__social">(Соц сеть)</a>
+              </div>
+          
+            </div>
+        
+        
+            <!-- RIGHT: FORM -->
+            <div class="contacts__form-wrapper">
+            
+              <form class="contacts__form" id="contactForm">
+            
+                <!-- Name -->
+                <div class="form-group">
+                  <input type="text" name="name" placeholder="(Имя)" required>
+                </div>
+            
+                <!-- Contact -->
+                <div class="form-group">
+                  <input type="text" name="contact" placeholder="(Email или Телефон)" required>
+                </div>
+            
+                <!-- Message -->
+                <div class="form-group">
+                  <textarea name="message" rows="4" placeholder="(Сообщение)" required></textarea>
+                </div>
+            
+                <!-- Submit -->
+                <button type="submit" class="btn btn--primary">
+                  (Отправить)
+                </button>
+            
+              </form>
+          
+            </div>
+        
+          </div>
+      
+        </section>
+
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+        <!-- можно позже -->
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,135 @@
+/* ================= HERO STYLES ================= */
+/* File: styles/sections/hero.css */
+
+/* Root hero section */
+.hero {
+  padding: 120px 0; /* Large spacing for premium feel */
+  background-color: var(--bgColor);
+}
+
+/* Container layout */
+.hero__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 80px; /* Air between text and image */
+}
+
+/* LEFT CONTENT */
+.hero__content {
+  max-width: 520px;
+}
+
+/* Title hierarchy — main visual focus */
+.hero__title {
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--textColor);
+  margin-bottom: 24px;
+}
+
+/* Subtle secondary text */
+.hero__subtitle {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--mutedTextColor);
+  margin-bottom: 40px;
+}
+
+/* CTA container */
+.hero__actions {
+  display: flex;
+  gap: 20px;
+}
+
+/* BUTTONS */
+/* Primary button (soft premium accent) */
+.btn--primary {
+  padding: 14px 28px;
+  background-color: var(--textColor);
+  color: #fff;
+  border-radius: var(--radiusMedium);
+  text-decoration: none;
+  transition: var(--transitionMedium);
+}
+
+/* Secondary button (minimal outline style) */
+.btn--secondary {
+  padding: 14px 28px;
+  border: 1px solid var(--borderColor);
+  color: var(--textColor);
+  border-radius: var(--radiusMedium);
+  text-decoration: none;
+  transition: var(--transitionMedium);
+}
+
+/* Hover states — subtle and slow */
+.btn--primary:hover {
+  opacity: 0.85;
+}
+
+.btn--secondary:hover {
+  background-color: rgba(0,0,0,0.03);
+}
+
+
+/* RIGHT MEDIA BLOCK */
+.hero__media {
+  position: relative;
+  width: 500px;
+  height: 600px;
+}
+
+/* Main image (dominant visual) */
+.hero__image--main {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: var(--radiusLarge);
+}
+
+/* Secondary image layered */
+.hero__image--secondary {
+  position: absolute;
+  width: 220px;
+  height: 260px;
+  bottom: -40px;
+  right: -40px;
+  overflow: hidden;
+  border-radius: var(--radiusMedium);
+  box-shadow: var(--shadowSoft);
+}
+
+/* Image behavior */
+.hero__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Important for premium cropping */
+}
+
+
+/* ================= RESPONSIVE ================= */
+/* Mobile-first stacking */
+@media (max-width: 768px) {
+
+  .hero__container {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .hero__media {
+    width: 100%;
+    height: 400px;
+  }
+
+  .hero__image--secondary {
+    display: none; /* Avoid clutter on small screens */
+  }
+
+  .hero__title {
+    font-size: 32px;
+  }
+
+}

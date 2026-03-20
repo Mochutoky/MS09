@@ -1,94 +1,189 @@
-/* ================= HEADER ================= */
+/* ================= HEADER STYLES (MOBILE-FIRST) ================= */
 /* File: styles/layout/header.css */
 
+/* ROOT HEADER
+   Adjusted for mobile-first: Keeps fixed position but relies on fluid content 
+   height instead of a fixed pixel height on mobile. This accommodates the 
+   stacked layout gracefully.
+*/
 .header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-
   z-index: 1000;
-
+  
   /* Initial transparent state */
   background-color: transparent;
-
-  transition: var(--transitionMedium);
+  transition: background-color 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease;
 }
 
-/* Container */
+/* CONTAINER
+   Mobile layout: Stacked vertically (column). Logo on top, menu below. 
+   Height is 'auto' to wrap the links, using vertical padding for breathing room.
+*/
 .header__container {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-
-  height: 80px;
+  justify-content: center;
+  gap: 0.75rem; /* 12px gap between logo and menu on small screens */
+  padding: 1rem var(--container-padding, 20px);
+  height: auto;
+  transition: padding 0.3s ease;
 }
 
-/* Logo */
+/* LOGO
+   Fluid sizing. Centered on mobile.
+*/
 .header__logo {
-  font-size: 18px;
+  font-size: clamp(1.125rem, 4vw, 1.25rem); /* 18px to 20px */
   font-weight: 500;
   color: var(--textColor);
+  text-align: center;
+  letter-spacing: 0.02em;
 }
 
-/* Menu */
+/* MENU
+   Mobile layout: Flex wrap enabled. This acts as a clean, exposed mobile 
+   navigation without needing a hamburger toggle.
+*/
 .header__menu {
   display: flex;
-  gap: 32px;
+  flex-direction: row;
+  flex-wrap: wrap; /* Allows links to flow to a second line if space is tight */
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem 1.25rem; /* row-gap 12px, column-gap 20px */
   list-style: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-/* Links */
+/* LINKS
+   Increased padding to ensure a minimum 44px tap target area for mobile 
+   fingers, preventing accidental misclicks.
+*/
 .header__link {
-  font-size: 14px;
+  display: inline-block;
+  font-size: 0.875rem; /* 14px */
   color: var(--textColor);
   text-decoration: none;
   position: relative;
-
+  padding: 0.5rem 0; /* Touch-friendly vertical padding */
   transition: var(--transitionMedium);
 }
 
-/* Hover (very subtle) */
-.header__link:hover {
-  opacity: 0.6;
+/* SCROLLED STATE
+   Keeps the blur and border, but adds slight padding reduction for a sleeker 
+   profile when moving down the page.
+*/
+.header.scrolled {
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  border-bottom: 1px solid var(--borderColor);
 }
 
-/* Active link underline */
+.header.scrolled .header__container {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+/* ACTIVE LINK UNDERLINE
+   Preserved logic, using relative positioning.
+*/
 .header__link::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -4px;
+  bottom: 0.25rem; /* Adjusted to sit nicely inside the new touch padding */
   width: 0%;
   height: 1px;
   background-color: var(--textColor);
-  transition: var(--transitionMedium);
+  transition: width 0.3s ease;
 }
 
 .header__link.active::after {
   width: 100%;
 }
 
-/* ================= SCROLLED STATE ================= */
-/* Header becomes solid */
-
-.header.scrolled {
-  background-color: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(10px);
-
-  border-bottom: 1px solid var(--borderColor);
+/* HOVER STATES
+   Wrapped in hover media query to prevent sticky active states on touch screens.
+*/
+@media (hover: hover) {
+  .header__link:hover {
+    opacity: 0.6;
+  }
+  
+  .header__link:hover::after {
+    width: 100%;
+    opacity: 0.5; /* Subtle partial underline on hover before becoming active */
+  }
 }
 
-/* ================= RESPONSIVE ================= */
+/* ================= MEDIA QUERIES ================= */
 
-@media (max-width: 768px) {
+/* Small Phones (320px to 374px) */
+@media (max-width: 374px) {
+  .header__menu {
+    gap: 0.5rem 0.75rem; /* Tighter spacing for very narrow screens */
+  }
+  .header__link {
+    font-size: 0.8125rem; /* 13px fallback to prevent excessive line wrapping */
+  }
+}
+
+/* Large Phones (414px and up) */
+@media (min-width: 414px) {
+  .header__menu {
+    gap: 1rem 1.5rem; /* Breathe a little more */
+  }
+}
+
+/* Tablets (768px and up)
+   Here we restore the original desktop-style row layout. 
+   Multi-column layout: Logo left, Menu right.
+*/
+@media (min-width: 768px) {
+  .header__container {
+    flex-direction: row;
+    justify-content: space-between;
+    height: 5rem; /* 80px restored */
+    padding: 0 var(--container-padding, 40px);
+  }
+
+  /* Scrolled state desktop adjustment */
+  .header.scrolled .header__container {
+    height: 4.375rem; /* 70px - shrinks slightly on scroll for premium feel */
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .header__logo {
+    text-align: left;
+  }
 
   .header__menu {
-    gap: 16px;
+    width: auto;
+    flex-wrap: nowrap; /* Prevent wrapping on desktop */
+    justify-content: flex-end;
+    gap: 1.5rem;
   }
-
-  .header__container {
-    height: 70px;
+  
+  .header__link {
+    padding: 0; /* Remove mobile touch padding */
   }
+  
+  .header__link::after {
+    bottom: -4px; /* Restore desktop underline position */
+  }
+}
 
+/* Desktop & Laptops (1024px and up) */
+@media (min-width: 1024px) {
+  .header__menu {
+    gap: 2rem; /* 32px standard gap from original CSS */
+  }
 }

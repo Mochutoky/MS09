@@ -97,12 +97,12 @@
 
 /* ================= ANIMATION ================= */
 /* Simple fade-in (can be reused globally) */
-.about {
+/* .about {
   opacity: 1;
   transform: none;
-}
+} */
 
-/* только для анимации 
+/* только для анимации  */
 .about {
   opacity: 0;
   transform: translateY(40px);
@@ -112,7 +112,7 @@
   opacity: 1;
   transform: translateY(0);
 }
-*/
+
 
 /* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {

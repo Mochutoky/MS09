@@ -1,135 +1,228 @@
-/* ================= HERO STYLES ================= */
+/* ================= HERO STYLES (MOBILE-FIRST) ================= */
 /* File: styles/sections/hero.css */
 
-/* Root hero section */
+/* ROOT HERO SECTION 
+  Adjusted for mobile-first: Padding uses fluid clamp() to dynamically scale 
+  from 60px on mobile to 120px on desktop. Preserves the airy, premium feel 
+  without wasting valuable real estate on small screens. 
+*/
 .hero {
-  padding: 120px 0; /* Large spacing for premium feel */
+  padding: clamp(3.75rem, 8vw, 7.5rem) 0;
   background-color: var(--bgColor);
 }
 
-/* Container layout */
+/* CONTAINER LAYOUT 
+  Base style is now vertical (mobile). Gap is fluid, providing tight but 
+  clean spacing on mobile (40px) that expands to generous spacing on desktop (80px).
+*/
 .hero__container {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 80px; /* Air between text and image */
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(2.5rem, 6vw, 5rem); 
 }
 
-/* LEFT CONTENT */
+/* LEFT CONTENT 
+  Takes full width on mobile to maximize readability.
+*/
 .hero__content {
-  max-width: 520px;
+  width: 100%;
+  max-width: 100%;
 }
 
-/* Title hierarchy — main visual focus */
+/* TITLE HIERARCHY
+  Converted fixed pixels to fluid clamp(). 
+  Scales smoothly from 32px (mobile) to 48px (desktop).
+  Line-height tightened slightly for larger text to maintain neat blocks.
+*/
 .hero__title {
-  font-size: 48px;
+  font-size: clamp(2rem, 5vw + 1rem, 3rem);
   font-weight: 600;
-  line-height: 1.2;
+  line-height: 1.15;
   color: var(--textColor);
-  margin-bottom: 24px;
+  margin-bottom: clamp(1rem, 3vw, 1.5rem);
 }
 
-/* Subtle secondary text */
+/* SUBTITLE
+  Fluid font-size ensuring legibility on tiny screens (320px) up to 4K.
+*/
 .hero__subtitle {
-  font-size: 18px;
+  font-size: clamp(1rem, 2vw + 0.5rem, 1.125rem);
   line-height: 1.6;
   color: var(--mutedTextColor);
-  margin-bottom: 40px;
+  margin-bottom: clamp(1.75rem, 5vw, 2.5rem);
 }
 
-/* CTA container */
+/* CTA CONTAINER 
+  Stacked vertically on base mobile for touch-friendly thumb access.
+*/
 .hero__actions {
   display: flex;
-  gap: 20px;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
 }
 
-/* BUTTONS */
-/* Primary button (soft premium accent) */
+/* BUTTONS 
+  Converted padding to rems. 
+  Width is 100% on base mobile to ensure a massive, easy-to-tap touch target.
+  Text aligned center.
+*/
+.btn--primary,
+.btn--secondary {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 3rem; /* Ensures a minimum 48px height for iOS/Android touch standards */
+  padding: 0.875rem 1.75rem;
+  border-radius: var(--radiusMedium);
+  text-decoration: none;
+  font-size: 1rem;
+  transition: var(--transitionMedium);
+}
+
 .btn--primary {
-  padding: 14px 28px;
   background-color: var(--textColor);
   color: #fff;
-  border-radius: var(--radiusMedium);
-  text-decoration: none;
-  transition: var(--transitionMedium);
 }
 
-/* Secondary button (minimal outline style) */
 .btn--secondary {
-  padding: 14px 28px;
   border: 1px solid var(--borderColor);
   color: var(--textColor);
-  border-radius: var(--radiusMedium);
-  text-decoration: none;
-  transition: var(--transitionMedium);
+  background-color: transparent;
 }
 
-/* Hover states — subtle and slow */
-.btn--primary:hover {
-  opacity: 0.85;
+/* HOVER STATES
+  Wrapped in hover media query so touch devices don't get "stuck" in a hover state 
+  after tapping.
+*/
+@media (hover: hover) {
+  .btn--primary:hover {
+    opacity: 0.85;
+  }
+  
+  .btn--secondary:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+  }
 }
 
-.btn--secondary:hover {
-  background-color: rgba(0,0,0,0.03);
+/* active states for touch feedback */
+.btn--primary:active {
+  opacity: 0.7;
 }
 
+.btn--secondary:active {
+  background-color: rgba(0, 0, 0, 0.06);
+}
 
-/* RIGHT MEDIA BLOCK */
+/* RIGHT MEDIA BLOCK 
+  Mobile-first: fluid width and aspect ratio.
+  Instead of fixed heights, aspect-ratio keeps the premium portrait crop 
+  perfectly intact on any screen size.
+*/
 .hero__media {
   position: relative;
-  width: 500px;
-  height: 600px;
+  width: 100%;
+  aspect-ratio: 4 / 5; /* Premium fashion/lookbook proportion */
+  max-height: 70vh;    /* Prevents image from taking over the whole screen */
 }
 
-/* Main image (dominant visual) */
+/* MAIN IMAGE 
+  Absolute positioning removed for base mobile to work natively with aspect-ratio.
+*/
 .hero__image--main {
-  position: absolute;
   width: 100%;
   height: 100%;
   overflow: hidden;
   border-radius: var(--radiusLarge);
 }
 
-/* Secondary image layered */
+/* SECONDARY IMAGE 
+  Hidden on mobile to reduce clutter and preserve the minimal aesthetic.
+*/
 .hero__image--secondary {
-  position: absolute;
-  width: 220px;
-  height: 260px;
-  bottom: -40px;
-  right: -40px;
-  overflow: hidden;
-  border-radius: var(--radiusMedium);
-  box-shadow: var(--shadowSoft);
+  display: none;
 }
 
-/* Image behavior */
-.hero__image img {
+/* Image behavior remains untouched for object-fit magic */
+.hero__image--main img,
+.hero__image--secondary img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Important for premium cropping */
+  object-fit: cover;
 }
 
 
-/* ================= RESPONSIVE ================= */
-/* Mobile-first stacking */
-@media (max-width: 768px) {
+/* ================= MEDIA QUERIES ================= */
 
-  .hero__container {
-    flex-direction: column;
-    gap: 40px;
-  }
-
+/* Small Phones (e.g., iPhone SE) */
+@media (min-width: 375px) {
   .hero__media {
-    width: 100%;
-    height: 400px;
+    max-height: 75vh;
+  }
+}
+
+/* Large Phones */
+@media (min-width: 414px) {
+  /* Allow buttons to sit side-by-side if there is enough room */
+  .hero__actions {
+    flex-direction: row;
+    width: auto;
+  }
+  
+  .btn--primary,
+  .btn--secondary {
+    width: auto; /* Revert to content-width */
+  }
+}
+
+/* Tablets */
+@media (min-width: 768px) {
+  /* Adjust image ratio slightly for wider tablet screens to avoid extreme heights */
+  .hero__media {
+    aspect-ratio: 1 / 1; 
+    max-height: none;
+  }
+}
+
+/* Desktop & Laptops */
+@media (min-width: 1024px) {
+  /* Restore the side-by-side layout */
+  .hero__container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
   }
 
+  /* Restore max-width to keep typography line-lengths optimal for reading */
+  .hero__content {
+    max-width: 520px;
+  }
+
+  /* Restore fixed proportions for the desktop layout */
+  .hero__media {
+    width: 500px;
+    height: 600px;
+    aspect-ratio: auto; /* Override mobile ratio */
+  }
+
+  /* Re-apply absolute positioning for the layered desktop effect */
+  .hero__image--main {
+    position: absolute;
+  }
+
+  /* Reveal secondary image layered effect */
   .hero__image--secondary {
-    display: none; /* Avoid clutter on small screens */
+    display: block;
+    position: absolute;
+    width: 220px;
+    height: 260px;
+    bottom: -40px;
+    right: -40px;
+    overflow: hidden;
+    border-radius: var(--radiusMedium);
+    box-shadow: var(--shadowSoft);
+    z-index: 2; /* Ensure it stays above the main image */
   }
-
-  .hero__title {
-    font-size: 32px;
-  }
-
 }

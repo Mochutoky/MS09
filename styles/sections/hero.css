@@ -6,9 +6,15 @@
   from 60px on mobile to 120px on desktop. Preserves the airy, premium feel 
   without wasting valuable real estate on small screens. 
 */
-.hero {
+/* .hero {
   padding: clamp(3.75rem, 8vw, 7.5rem) 0;
   background-color: var(--bgColor);
+  max-height: 100vh;
+} */
+ .hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
 }
 
 /* CONTAINER LAYOUT 
@@ -159,7 +165,7 @@
 /* Small Phones (e.g., iPhone SE) */
 @media (min-width: 375px) {
   .hero__media {
-    max-height: 75vh;
+    display: none;
   }
 }
 
@@ -184,6 +190,25 @@
     aspect-ratio: 1 / 1; 
     max-height: none;
   }
+
+  .hero {
+    min-height: calc(100vh - 70px);
+    display: flex;
+    align-items: center;
+    padding: 0; /* убираем лишний отступ сверху */
+  }
+
+  .hero__container {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero__content {
+    margin: 0 auto;
+    max-width: 420px;
+  }
+
 }
 
 /* Desktop & Laptops */
@@ -205,6 +230,7 @@
     width: 500px;
     height: 600px;
     aspect-ratio: auto; /* Override mobile ratio */
+    display: inline;
   }
 
   /* Re-apply absolute positioning for the layered desktop effect */

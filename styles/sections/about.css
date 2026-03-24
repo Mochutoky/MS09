@@ -25,6 +25,7 @@
 
 section {
     padding: var(--section-spacing) 0;
+    scroll-margin-top: clamp(4.5rem, 10vh, 5.5rem);
 }
 
 /* ================= HERO SECTION ================= */

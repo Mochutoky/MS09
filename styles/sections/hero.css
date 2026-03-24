@@ -163,7 +163,7 @@
 /* ================= MEDIA QUERIES ================= */
 
 /* Small Phones (e.g., iPhone SE) */
-@media (min-width: 375px) {
+@media (min-width: 350px) {
   .hero__media {
     display: none;
   }

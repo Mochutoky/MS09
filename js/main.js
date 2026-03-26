@@ -4,7 +4,6 @@
 // Import all modules (modular architecture)
 import './modules/navigation.js';
 import './modules/animations.js';
-import './modules/form.js';
 
 // Optional: utils (если используешь helper функции)
 // import './utils/helpers.js';

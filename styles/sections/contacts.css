@@ -3,6 +3,7 @@
 
 .contacts {
   background-color: var(--surfaceColor);
+  height: 90vh;
 }
 
 /* Layout */
@@ -71,43 +72,6 @@
 }
 
 
-/* ================= FORM ================= */
-
-.contacts__form-wrapper {
-  width: 420px;
-}
-
-.contacts__form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-/* Inputs */
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 14px 16px;
-
-  border: 1px solid var(--borderColor);
-  border-radius: var(--radiusMedium);
-
-  font-size: 14px;
-  font-family: inherit;
-
-  background-color: transparent;
-
-  transition: var(--transitionMedium);
-}
-
-/* Focus state — elegant, minimal */
-.form-group input:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: var(--textColor);
-}
-
-
 /* ================= ANIMATION ================= */
 .contacts {
   opacity: 1;
@@ -132,10 +96,6 @@
   .contacts__container {
     flex-direction: column;
     gap: 40px;
-  }
-
-  .contacts__form-wrapper {
-    width: 100%;
   }
 
   .contacts__title {

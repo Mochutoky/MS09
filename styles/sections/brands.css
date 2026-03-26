@@ -5,16 +5,16 @@
   background-color: var(--bgColor);
 }
 
-/* Section header */
+/* Header */
 .brands__header {
   max-width: 520px;
-  margin-bottom: 60px;
+  margin-bottom: 28px; /* было слишком много */
 }
 
 .brands__title {
   font-size: 32px;
   font-weight: 600;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   color: var(--textColor);
 }
 
@@ -24,127 +24,89 @@
   line-height: 1.6;
 }
 
-
-/* ================= GRID ================= */
-/* Core layout system */
-
+/* Grid */
 .brands__grid {
   display: grid;
-
-  /* Responsive grid:
-     - auto-fit ensures flexibility
-     - minmax prevents cards from becoming too small */
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-
-  gap: 40px; /* Spacious, premium spacing */
+  gap: 20px; /* меньше пустоты между карточками */
 }
 
-
-/* ================= CARD ================= */
-
+/* Card */
 .brand-card {
   background-color: var(--surfaceColor);
   border-radius: var(--radiusLarge);
-  overflow: hidden;
-  transition: var(--transitionMedium);
-  display: flex;
-  flex-direction: column;
-}
-
-/* Hover effect — subtle lift */
-.brand-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadowSoft);
-}
-
-
-/* IMAGE */
-.brand-card__image {
-  width: 100%;
-  height: 220px;
-  overflow: hidden;
-}
-
-.brand-card__image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-
-  /* Subtle zoom effect */
-  transition: var(--transitionSlow);
-}
-
-.brand-card:hover .brand-card__image img {
-  transform: scale(1.03);
-}
-
-
-/* CONTENT */
-.brand-card__content {
-  padding: 24px;
+  padding: 20px 20px 18px;
   display: flex;
   flex-direction: column;
   gap: 14px;
+  transition: var(--transitionMedium);
+  border: 1px solid var(--borderColor);
 }
 
+.brand-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadowSoft);
+}
 
-/* LOGO */
+/* Top row: logo + title */
+.brand-card__top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Bigger logo */
+.brand-card__logo {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .brand-card__logo img {
-  height: 28px;
-  width: auto;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
 }
 
-
-/* TITLE */
+/* Title next to logo */
 .brand-card__title {
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--textColor);
+  line-height: 1.2;
 }
 
-
-/* DESCRIPTION */
+/* Description below */
 .brand-card__description {
   font-size: 14px;
   color: var(--mutedTextColor);
   line-height: 1.6;
+  margin-left: 78px; /* aligns text under title after logo */
 }
 
-
-/* ================= ANIMATION ================= */
-/* Fade-in on scroll */
-.brands {
-  opacity: 1;
-  transform: none;
-}
-
-/* .brands {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: var(--transitionSlow);
-}
-
-.brands.visible {
-  opacity: 1;
-  transform: translateY(0);
-} */
-
-
-/* ================= RESPONSIVE ================= */
-
+/* Mobile adjustments */
 @media (max-width: 768px) {
-
   .brands__header {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
   }
 
   .brands__title {
     font-size: 26px;
   }
 
-  .brand-card__image {
-    height: 180px;
+  .brand-card {
+    padding: 18px;
   }
 
+  .brand-card__logo {
+    width: 52px;
+    height: 52px;
+  }
+
+  .brand-card__description {
+    margin-left: 0; /* on mobile stack naturally */
+  }
 }
